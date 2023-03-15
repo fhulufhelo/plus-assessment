@@ -25,7 +25,7 @@ class LogUserLoginInfo
 
         $last_login = $event->user->getLastLoginInfo();
 
-        if ($last_login && $last_login->ip !== $ip &&  $last_login->user_agent !== $user_agent) {
+        if (!$last_login || ($last_login->ip !== $ip && $last_login->user_agent !== $user_agent)) {
             Mail::to($event->user->email)->send(new NewDeviceLogin($event->user,$ip, $user_agent));
         }
 
