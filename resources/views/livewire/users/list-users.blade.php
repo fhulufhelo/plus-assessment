@@ -2,8 +2,25 @@
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-900">
-                    <table class="min-w-full divide-y divide-gray-900">
+
+                <div class="max-w-md">
+                    <form>
+                        <div class="flex">
+                            <div class="relative w-full">
+                                <input wire:model="search" type="search" class="block p-2.5 w-full z-20 text-sm text-white bg-placeholder-gray border border-secondary focus:ring-blue-500 focus:border-secondary dark:bg-gray-700" placeholder="Search">
+                                <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-placeholder-gray  hover:bg-bar-gray focus:ring-4 focus:outline-none focus:ring-bar-gray">
+                                    <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="mt-2 shadow overflow-hidden">
+                    <table class="min-w-full">
                         <thead class="bg-bar-gray">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white tracking-wider">
@@ -23,7 +40,7 @@
                             </th>
                         </tr>
                         </thead>
-                        <tbody class="bg-placeholder-gray divide-y divide-y-2 divide-gray-900">
+                        <tbody class="bg-placeholder-gray divide-y divide-y-4 divide-secondary">
                         @forelse ($this->users as $user)
                             <tr>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-link underline">
@@ -54,6 +71,9 @@
 
                         </tbody>
                     </table>
+                   <div class="mt-4">
+                       {{ $this->users->links('vendor.livewire.tailwind') }}
+                   </div>
                 </div>
             </div>
         </div>
