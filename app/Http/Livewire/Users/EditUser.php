@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Users;
 
-use App\Actions\User\CreateNewUser;
 use App\Actions\User\UpdateUser;
 use App\Models\User;
 use Livewire\Component;
@@ -24,7 +23,7 @@ class EditUser extends Component
     ];
 
 
-    public function editUser($id)
+    public function editUser(int $id)
     {
         $user = User::with('roles')->find($id);
 
@@ -32,11 +31,12 @@ class EditUser extends Component
 
         $this->state = [
             'first_name' => $user->first_name,
-            'last_name'=> $user->last_name,
+            'last_name' => $user->last_name,
             'email' => $user->email,
             'password' => $user->password,
             'roles' => $user->roles->pluck('id')->all(),
         ];
+
         $this->updateNewUser = true;
     }
 
@@ -48,7 +48,7 @@ class EditUser extends Component
 
         $this->emit('userAdded');
 
-        $this->reset('state','updateNewUser');
+        $this->reset(['state', 'updateNewUser']);
     }
 
 

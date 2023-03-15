@@ -4,7 +4,7 @@
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-900">
                     <table class="min-w-full divide-y divide-gray-900">
-                        <thead class="bg-gray-800">
+                        <thead class="bg-bar-gray">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-white tracking-wider">
                                 First name
@@ -23,11 +23,11 @@
                             </th>
                         </tr>
                         </thead>
-                        <tbody class="bg-gray-700 divide-y divide-y-2 divide-gray-900">
+                        <tbody class="bg-placeholder-gray divide-y divide-y-2 divide-gray-900">
                         @forelse ($this->users as $user)
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-yellow-500 underline">
-                                    <button wire:click="edit({{$user->id}})">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-link underline">
+                                    <button wire:click="edit({{$user->id}})" class="underline">
                                         {{$user->first_name}}
                                     </button>
                                 </td>
