@@ -15,12 +15,12 @@
         @livewireStyles
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="antialiased font-sans bg-gray-800 overflow-hidden">
+    <body class="antialiased font-sans bg-bar-gray overflow-hidden">
     <div>
         <div style="min-height: 640px;">
             <div x-data="{ open: false }"
                  @keydown.window.escape="open = false"
-                 class="relative h-screen flex overflow-hidden bg-gray-800">
+                 class="relative h-screen flex overflow-hidden bg-bar-gray">
 
                 <div
                     x-show="open"
@@ -46,7 +46,7 @@
                          x-transition:leave="transition ease-in-out duration-300 transform"
                          x-transition:leave-start="translate-x-0"
                          x-transition:leave-end="-translate-x-full"
-                         class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-gray-900" style="display: none;">
+                         class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-secondary" style="display: none;">
 
                         <div x-show="open"
                              x-transition:enter="ease-in-out duration-300"
@@ -70,18 +70,17 @@
                         <nav class="mt-5 flex-shrink-0 h-full divide-y divide-gray-800 overflow-y-auto" aria-label="Sidebar">
                             <div class="px-2 space-y-1">
 
-                                <a href="/users" class="bg-red-500 text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mr-4 flex-shrink-0 h-6 w-6 text-gray-900">
-                                        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+                                <a href="/users" class="bg-primary text-secondary group flex items-center px-2 py-2 text-base font-medium">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 29.3333H25.3333C26.0406 29.3333 26.7189 29.0524 27.219 28.5523C27.719 28.0522 28 27.3739 28 26.6667V5.33332C28 4.62608 27.719 3.9478 27.219 3.4477C26.7189 2.94761 26.0406 2.66666 25.3333 2.66666H6.66667C5.95942 2.66666 5.28115 2.94761 4.78105 3.4477C4.28095 3.9478 4 4.62608 4 5.33332V26.6667C4 27.3739 4.28095 28.0522 4.78105 28.5523C5.28115 29.0524 5.95942 29.3333 6.66667 29.3333H8ZM16 6.66532C18.196 6.66532 20 8.46666 20 10.6653C20 12.8627 18.196 14.6667 16 14.6667C13.804 14.6667 12 12.8627 12 10.6653C12 8.46666 13.804 6.66532 16 6.66532ZM8 23C8 20.0413 11.6067 17 16 17C20.3933 17 24 20.0413 24 23V24H8V23Z" fill="black"/>
                                     </svg>
                                     Users
                                 </a>
 
-                                <a href="#" class="text-white hover:text-white hover:bg-red-600 group flex items-center px-2 py-2 text-base font-medium rounded-md" >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-4 flex-shrink-0 h-6 w-6 text-white">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+                                <a href="#" class="text-white hover:text-white hover:bg-primary group flex items-center px-2 py-2 text-base font-medium" >
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.80002 3.20001C8.1635 3.20001 7.55306 3.45287 7.10297 3.90296C6.65288 4.35304 6.40002 4.96349 6.40002 5.60001V26.4C6.40002 27.0365 6.65288 27.647 7.10297 28.0971C7.55306 28.5472 8.1635 28.8 8.80002 28.8H23.2C23.8365 28.8 24.447 28.5472 24.8971 28.0971C25.3472 27.647 25.6 27.0365 25.6 26.4V5.60001C25.6 4.96349 25.3472 4.35304 24.8971 3.90296C24.447 3.45287 23.8365 3.20001 23.2 3.20001H8.80002ZM20.144 11.1872L20 11.2H12C11.8001 11.2004 11.6073 11.1259 11.4596 10.9912C11.3118 10.8565 11.2199 10.6714 11.2018 10.4723C11.1838 10.2732 11.2409 10.0746 11.362 9.91548C11.4831 9.75641 11.6593 9.64843 11.856 9.61281L12 9.60001H20C20.1999 9.59964 20.3927 9.67414 20.5405 9.80883C20.6882 9.94351 20.7802 10.1286 20.7982 10.3277C20.8163 10.5268 20.7592 10.7255 20.6381 10.8845C20.517 11.0436 20.3407 11.1516 20.144 11.1872ZM20.144 16.7872L20 16.8H12C11.8001 16.8004 11.6073 16.7259 11.4596 16.5912C11.3118 16.4565 11.2199 16.2714 11.2018 16.0723C11.1838 15.8732 11.2409 15.6746 11.362 15.5155C11.4831 15.3564 11.6593 15.2484 11.856 15.2128L12 15.2H20C20.1999 15.1996 20.3927 15.2741 20.5405 15.4088C20.6882 15.5435 20.7802 15.7286 20.7982 15.9277C20.8163 16.1268 20.7592 16.3255 20.6381 16.4845C20.517 16.6436 20.3407 16.7516 20.144 16.7872ZM20.144 22.3872L20 22.4H12C11.8001 22.4004 11.6073 22.3259 11.4596 22.1912C11.3118 22.0565 11.2199 21.8714 11.2018 21.6723C11.1838 21.4732 11.2409 21.2746 11.362 21.1155C11.4831 20.9564 11.6593 20.8484 11.856 20.8128L12 20.8H20C20.1999 20.7996 20.3927 20.8741 20.5405 21.0088C20.6882 21.1435 20.7802 21.3286 20.7982 21.5277C20.8163 21.7268 20.7592 21.9255 20.6381 22.0845C20.517 22.2436 20.3407 22.3516 20.144 22.3872Z" fill="white"/>
                                     </svg>
-
                                     Pages
                                 </a>
                             </div>
@@ -98,23 +97,23 @@
                 <div class="hidden lg:flex lg:flex-shrink-0">
                     <div class="flex flex-col w-64">
                         <!-- Sidebar component, swap this element with another sidebar if you like -->
-                        <div class="flex flex-col flex-grow bg-gray-900 pt-5 pb-4 overflow-y-auto">
+                        <div class="flex flex-col flex-grow bg-secondary pt-5 pb-4 overflow-y-auto">
                             <div class="flex items-center flex-shrink-0 px-4">
                                 <img class="h-8 w-auto" src="https://plusnarrative.com/2021/wp-content/themes/plusnarrative/public/img/logo-plusnarrative.svg" alt="plusnarrative logo">
                             </div>
                             <nav class="mt-5 flex-1 flex flex-col divide-y divide-cyan-800 overflow-y-auto" aria-label="Sidebar">
                                 <div class="px-2 space-y-1">
 
-                                    <a href="/users" class="bg-red-500 text-gray-900 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" x-state:on="Current" x-state:off="Default" aria-current="page" x-state-description="Current: &quot;bg-cyan-800 text-white&quot;, Default: &quot;text-cyan-100 hover:text-white hover:bg-cyan-600&quot;">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mr-4 flex-shrink-0 h-6 w-6 text-gray-900">
-                                            <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+                                    <a href="/users" class="bg-primary text-secondary group flex items-center px-2 py-2 text-sm leading-6 font-medium" x-state:on="Current" x-state:off="Default" aria-current="page" x-state-description="Current: &quot;bg-cyan-800 text-white&quot;, Default: &quot;text-cyan-100 hover:text-white hover:bg-cyan-600&quot;">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 29.3333H25.3333C26.0406 29.3333 26.7189 29.0524 27.219 28.5523C27.719 28.0522 28 27.3739 28 26.6667V5.33332C28 4.62608 27.719 3.9478 27.219 3.4477C26.7189 2.94761 26.0406 2.66666 25.3333 2.66666H6.66667C5.95942 2.66666 5.28115 2.94761 4.78105 3.4477C4.28095 3.9478 4 4.62608 4 5.33332V26.6667C4 27.3739 4.28095 28.0522 4.78105 28.5523C5.28115 29.0524 5.95942 29.3333 6.66667 29.3333H8ZM16 6.66532C18.196 6.66532 20 8.46666 20 10.6653C20 12.8627 18.196 14.6667 16 14.6667C13.804 14.6667 12 12.8627 12 10.6653C12 8.46666 13.804 6.66532 16 6.66532ZM8 23C8 20.0413 11.6067 17 16 17C20.3933 17 24 20.0413 24 23V24H8V23Z" fill="black"/>
                                         </svg>
                                         Users
                                     </a>
 
-                                    <a href="#" class="text-white hover:text-white hover:bg-red-600 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" x-state-description="undefined: &quot;bg-cyan-800 text-white&quot;, undefined: &quot;text-cyan-100 hover:text-white hover:bg-cyan-600&quot;">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-4 flex-shrink-0 h-6 w-6 text-white">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+                                    <a href="#" class="text-white hover:text-white hover:bg-primary group flex items-center px-2 py-2 text-sm leading-6 font-medium" x-state-description="undefined: &quot;bg-cyan-800 text-white&quot;, undefined: &quot;text-cyan-100 hover:text-white hover:bg-cyan-600&quot;">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.80002 3.20001C8.1635 3.20001 7.55306 3.45287 7.10297 3.90296C6.65288 4.35304 6.40002 4.96349 6.40002 5.60001V26.4C6.40002 27.0365 6.65288 27.647 7.10297 28.0971C7.55306 28.5472 8.1635 28.8 8.80002 28.8H23.2C23.8365 28.8 24.447 28.5472 24.8971 28.0971C25.3472 27.647 25.6 27.0365 25.6 26.4V5.60001C25.6 4.96349 25.3472 4.35304 24.8971 3.90296C24.447 3.45287 23.8365 3.20001 23.2 3.20001H8.80002ZM20.144 11.1872L20 11.2H12C11.8001 11.2004 11.6073 11.1259 11.4596 10.9912C11.3118 10.8565 11.2199 10.6714 11.2018 10.4723C11.1838 10.2732 11.2409 10.0746 11.362 9.91548C11.4831 9.75641 11.6593 9.64843 11.856 9.61281L12 9.60001H20C20.1999 9.59964 20.3927 9.67414 20.5405 9.80883C20.6882 9.94351 20.7802 10.1286 20.7982 10.3277C20.8163 10.5268 20.7592 10.7255 20.6381 10.8845C20.517 11.0436 20.3407 11.1516 20.144 11.1872ZM20.144 16.7872L20 16.8H12C11.8001 16.8004 11.6073 16.7259 11.4596 16.5912C11.3118 16.4565 11.2199 16.2714 11.2018 16.0723C11.1838 15.8732 11.2409 15.6746 11.362 15.5155C11.4831 15.3564 11.6593 15.2484 11.856 15.2128L12 15.2H20C20.1999 15.1996 20.3927 15.2741 20.5405 15.4088C20.6882 15.5435 20.7802 15.7286 20.7982 15.9277C20.8163 16.1268 20.7592 16.3255 20.6381 16.4845C20.517 16.6436 20.3407 16.7516 20.144 16.7872ZM20.144 22.3872L20 22.4H12C11.8001 22.4004 11.6073 22.3259 11.4596 22.1912C11.3118 22.0565 11.2199 21.8714 11.2018 21.6723C11.1838 21.4732 11.2409 21.2746 11.362 21.1155C11.4831 20.9564 11.6593 20.8484 11.856 20.8128L12 20.8H20C20.1999 20.7996 20.3927 20.8741 20.5405 21.0088C20.6882 21.1435 20.7802 21.3286 20.7982 21.5277C20.8163 21.7268 20.7592 21.9255 20.6381 22.0845C20.517 22.2436 20.3407 22.3516 20.144 22.3872Z" fill="white"/>
                                         </svg>
                                         Pages
                                     </a>

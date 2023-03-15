@@ -23,22 +23,21 @@ class LogUserLoginInfo
         $login_at = now();
         $user_agent = $this->request->header('User-Agent');
 
-        $last_login = UserLoginInfo::where('user_id',  $event->user->id)
-            ->orderBy('login_at', 'desc')
-            ->first();
+        $last_login = $event->user->getLastLoginInfo();
 
         if ($last_login && $last_login->ip !== $ip &&  $last_login->user_agent !== $user_agent) {
             Mail::to($event->user->email)->send(new NewDeviceLogin($event->user,$ip, $user_agent));
         }
 
-        $userLoginInfo = new UserLoginInfo([
+      tap(new UserLoginInfo([
             'ip' => $ip,
             'ip_location' => $ip_location,
             'login_at' => $login_at,
             'user_agent' => $user_agent,
-        ]);
+        ]), function ($loginInfo) use ($event) {
+            $event->user->loginInfos()->save($loginInfo);
+        });
 
-        $event->user->loginInfos()->save($userLoginInfo);
     }
 
     private function getIpAddress(): string
@@ -49,16 +48,26 @@ class LogUserLoginInfo
         };
     }
 
-    private function getIpLocation(string $ip): ?string
+    private function getIpLocation(string $ip): string
     {
-        $response = $this->client->get("http://ip-api.com/json/{$ip}");
+        try {
+            $response = $this->client->get("http://ip-api.com/json/{$ip}");
 
-        if ($response->getStatusCode() === 200) {
-            $data = json_decode($response->getBody(), true);
-            return "{$data['city']}, {$data['regionName']}, {$data['country']}";
+            if ($response->getStatusCode() === 200) {
+                $data = json_decode($response->getBody(), true);
+                return $this->formatLocationData($data);
+            }
+        } catch (\Exception $e) {
+            // Log exception
         }
 
-        return null;
+        return 'unknown';
     }
+
+    private function formatLocationData(array $data): string
+    {
+        return "{$data['city']}, {$data['regionName']}, {$data['country']}";
+    }
+
 }
 

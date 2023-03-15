@@ -50,4 +50,9 @@ class User extends Authenticatable
         return $this->hasMany(UserLoginInfo::class);
     }
 
+    public function getLastLoginInfo()
+    {
+        return $this->loginInfos()->orderBy('login_at', 'desc')->first();
+    }
+
 }
